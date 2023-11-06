@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="natcom_jan_view_inherit" inherit_id="natcom_jan_pdf.natcom_jan_view">
+        <xpath expr="//td[@style='text-align:left;border-left:none;border-right:none;']/img" position="replace">
+            <t t-if="o.qr_image">
+                <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('QR', o.qr_image, 200, 200)" style="width:100px;height:74px;margin-bottom:10px;margin-right:100px;"/>
+            </t>
+            <t t-else="">
+                <img t-att-src="o.get_qrcode()" style="width:100px;height:74px;margin-bottom:10px;margin-right:100px;"/>
+            </t>
+        </xpath>
+    </template>
+
+</odoo>
